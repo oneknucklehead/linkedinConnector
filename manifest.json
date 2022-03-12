@@ -1,0 +1,21 @@
+{
+
+    "manifest_version": 2,
+    "name": "Linkedin Connector",
+    "version": "1.0",
+  
+    "description": "Accepts all your linkedin connections at the click of just one button.",
+  
+    "content_scripts": [
+      {
+        "matches": ["*://*.linkedin.com/mynetwork/"],
+      }
+    ],
+    "browser_action":{
+        "default_popup":"index.html",
+        "default_title":"Linkedin connections acceptor"
+    },
+   "content_security_policy": "script-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://google-analytics.com; object-src 'self'",
+    
+    "permissions": [ "activeTab", "https://linkedin.com/*" ]
+  }
