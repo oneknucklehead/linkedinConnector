@@ -5,12 +5,6 @@
     "version": "1.0",
   
     "description": "Accepts all your linkedin connections at the click of just one button.",
-  
-    "content_scripts": [
-      {
-        "matches": ["*://*.linkedin.com/mynetwork/"],
-      }
-    ],
     "browser_action":{
         "default_popup":"index.html",
         "default_title":"Linkedin connections acceptor"

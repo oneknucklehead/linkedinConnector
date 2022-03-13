@@ -1,26 +1,9 @@
-var extensionBtn = document.getElementById('acceptBtn')
-extensionBtn.addEventListener('click', () => {
-  var acceptButtons = document.getElementsByClassName(
-    'artdeco-button--2 artdeco-button--secondary invitation-card__action-btn'
-  )
-  // for (let acceptButton of acceptButtons) {
-  //   // acceptButton.click()
-  //   console.log(acceptButton)
-  // }
-  chrome.permissions.request(
-    {
-      permissions: ['tabs'],
-      origins: ['https://www.google.com/'],
-    },
-    (granted) => {
-      // The callback argument will be true if the user granted the permissions.
-      if (granted) {
-        //   doSomething();
-        console.log('granted')
-      } else {
-        //   doSomethingElse();
-        console.log('not granted')
-      }
-    }
-  )
-})
+function injectTheScript() {
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    // query the active tab, which will be only one tab
+    //and inject the script in it
+    chrome.tabs.executeScript(tabs[0].id, { file: 'content_script.js' })
+  })
+}
+
+document.getElementById('acceptBtn').addEventListener('click', injectTheScript)
