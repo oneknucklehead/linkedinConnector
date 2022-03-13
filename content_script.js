@@ -3,10 +3,9 @@ function clickFunction() {
     'artdeco-button--2 artdeco-button--secondary invitation-card__action-btn'
   )
   if (connectButtons.length) {
-    connectButtons.forEach((connectButton) => {
+    for (const connectButton of connectButtons) {
       connectButton.click()
-      console.log('All connections accepted successfully!')
-    })
+    }
   } else {
     alert('No Connections to accept!')
   }
